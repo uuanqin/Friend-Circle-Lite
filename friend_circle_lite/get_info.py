@@ -9,6 +9,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # 标准化的请求头
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50'
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
 }
 
 timeout = (10, 15) # 连接超时和读取超时，防止requests接受时间过长
