@@ -8,10 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # 标准化的请求头
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50',
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive"
+    'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50'
 }
 
 timeout = (10, 15) # 连接超时和读取超时，防止requests接受时间过长
@@ -253,8 +250,6 @@ def fetch_and_process_data(json_url, specific_RSS=[], count=5):
     session = requests.Session()
     
     try:
-        logging.debug(f"here")
-        logging.info(f"here info")
         response = session.get(json_url, headers=headers, timeout=timeout)
         logging.info(f"响应码：{response.status_code}")
         logging.info(f"响应内容：{response.text}")
