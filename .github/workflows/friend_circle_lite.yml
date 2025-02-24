@@ -13,11 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Debug DNS
+    # - name: Debug DNS
+    #   run: |
+    #     nslookup blog.uuanqin.top
+    #     curl -vI https://blog.uuanqin.top/friend.json
+    # 修复 GitHub Action 无法解析域名的问题
+    - name: Fix DNS Resolution
       run: |
-        nslookup blog.uuanqin.top
-        curl -vI https://blog.uuanqin.top/friend.json
-        
+        echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
+        nslookup blog.uuanqin.top  # 再次验证解析
     - name: Pull Latest Repository
       uses: actions/checkout@v4
 
