@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Debug DNS
+      run: |
+        nslookup blog.uuanqin.top
+        curl -vI https://blog.uuanqin.top/friend.json
+        
     - name: Pull Latest Repository
       uses: actions/checkout@v4
 
