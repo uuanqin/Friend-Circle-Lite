@@ -13,15 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Debug DNS
-    #   run: |
-    #     nslookup blog.uuanqin.top
-    #     curl -vI https://blog.uuanqin.top/friend.json
-    # 修复 GitHub Action 无法解析域名的问题
-    # - name: Fix DNS Resolution
-    #   run: |
-    #     echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
-    #     nslookup blog.uuanqin.top  # 再次验证解析
     - name: Pull Latest Repository
       uses: actions/checkout@v4
 
@@ -96,8 +87,4 @@ jobs:
     permissions:
       actions: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: gautamkrishnar/keepalive-workflow@v2
-        with:
-          committer_username: "github-actions[bot]"
-          committer_email: "github-actions[bot]@users.noreply.github.com"
+      - uses: liskin/gh-workflow-keepalive@v1
